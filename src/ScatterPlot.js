@@ -272,9 +272,13 @@ function ScatterPlot() {
         
     return (
         <div className="scatterplot_container" id="vis_container">
-            <h1 className="centered">React and D3 Interactive Scatter Plot Visualization #2</h1>
+            <h1 className="centered">React and D3 Interactive Scatter Plot Visualization</h1>
+            <p className="centered">Hover over data points for more information</p>
             <div className="flexed">
                 <div className="filters centered" >
+                    <div className="flexed justified">
+                        <p style={{color: "white"}}>Legend</p>
+                    </div>
                     <div className="flexed justified">
                         <p style={{color: yearColors["192"]}}>1920's </p>
                         <p style={{color: yearColors["193"]}}>1930's </p>

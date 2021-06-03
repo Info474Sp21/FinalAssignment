@@ -5,7 +5,7 @@ export default class Conclusion extends Component {
     render() {
         return (
             <div style={{marginTop: 30}}>
-                <h1>Conclusion/Write-Up</h1>
+                <h1>Conclusion/Write-Up (Assignment 3)</h1>
                 <br></br>
                 <p>
                     1) A rationale for your design decisions. How did you choose your particular visual encodings and interaction techniques? What alternatives did you consider and how did you arrive at your ultimate choices?

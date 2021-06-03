@@ -1,0 +1,626 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  require('./style.css');
+  var _materialUiCoreStyles = require('@material-ui/core/styles');
+  var _materialUiCore = require('@material-ui/core');
+  var _materialUiCoreMenuItem = require('@material-ui/core/MenuItem');
+  var _materialUiCoreMenuItemDefault = _parcelHelpers.interopDefault(_materialUiCoreMenuItem);
+  require('@material-ui/core/Fade');
+  require('@material-ui/core/Typography');
+  require('@material-ui/core/Slider');
+  var _hooksUseFetch = require("../hooks/useFetch");
+  require("d3-array");
+  require("d3-axis-for-react");
+  require("d3-scale");
+  var _d = require("d3");
+  require("d3-tip");
+  var _jsxFileName = "/Users/claytonnovotney/Desktop/UW/Spring2021/Info474/FinalAssignment/src/ScatterPlot.js", _s = $RefreshSig$();
+  const filters = {
+    "acousticness": {
+      "name": "acousticness",
+      "scale": 100,
+      "minVal": 0.22,
+      "maxVal": 0.96,
+      "description": "How acoustic the songs in year are on a scale of 0.0 to 1.0."
+    },
+    "danceability": {
+      "name": "danceability",
+      "scale": 100,
+      "minVal": 0.41,
+      "maxVal": 0.69,
+      "description": "How suitable the songs in year are for dancing on a scale of 0.0 to 1.0."
+    },
+    "duration_ms": {
+      "name": "duration_ms",
+      "scale": 100,
+      "minVal": 157000,
+      "maxVal": 268000,
+      "description": "Average time duration of songs in year in ms."
+    },
+    "energy": {
+      "name": "energy",
+      "scale": 100,
+      "minVal": 0.21,
+      "maxVal": 0.68,
+      "description": "How energetic the songs in year are on a scale of 0.0 to 1.0."
+    },
+    "instrumentalness": {
+      "name": "instrumentalness",
+      "scale": 100,
+      "minVal": 0.02,
+      "maxVal": 0.58,
+      "description": "Ratio of instrumental sounds on a scale of 0.0 to 1.0."
+    },
+    "liveness": {
+      "name": "liveness",
+      "scale": 100,
+      "minVal": 0.17,
+      "maxVal": 0.26,
+      "description": "Audience presence on a scale of 0.0 to 1.0."
+    },
+    "speechiness": {
+      "name": "speechiness",
+      "scale": 100,
+      "minVal": 0.05,
+      "maxVal": 0.49,
+      "description": "Spoken words ratio on a scale of 0.0 to 1.0."
+    },
+    "tempo": {
+      "name": "tempo",
+      "scale": 100,
+      "minVal": 101,
+      "maxVal": 124,
+      "description": "Tempo of songs in year in BPM on a scale of 0.0 to 160."
+    },
+    "valence": {
+      "name": "valence",
+      "scale": 100,
+      "minVal": 0.38,
+      "maxVal": 0.66,
+      "description": "Positivity of songs in year on a scale of 0.0 to 1.0."
+    },
+    "popularity": {
+      "name": "popularity",
+      "scale": 100,
+      "minVal": 0.14,
+      "maxVal": 65.3,
+      "description": "Popularity of songs in year on a scale of 0.0 to 100.0."
+    },
+    "year": {
+      "name": "year",
+      "scale": 100,
+      "minVal": 1920,
+      "maxVal": 2020,
+      "description": "The year of the songs"
+    }
+  };
+  const yearColors = {
+    192: "#74ff4f",
+    193: "#36ff00",
+    194: "#34eb03",
+    195: "#00ff5a",
+    196: "#00d44b",
+    197: "#00ba42",
+    198: "#009836",
+    199: "#00782b",
+    200: "#026325",
+    201: "#096028",
+    202: "#0a5424"
+  };
+  function ScatterPlot() {
+    _s();
+    const dataByYearURL = "https://raw.githubusercontent.com/Info474Sp21/Info474Assignment3/main/data/data_by_year_o.csv";
+    // state stuff
+    const [data, loading] = _hooksUseFetch.useFetch(dataByYearURL);
+    const [xFilter, setXFilter] = _react.useState("danceability");
+    const [yFilter, setYFilter] = _react.useState("popularity");
+    const [startYear, setStartYear] = _react.useState(1921);
+    const [endYear, setEndYear] = _react.useState(2020);
+    const [anchorEl, setAnchorEl] = _react.useState(null);
+    const [minOfXCat, setMinOfXCat] = _react.useState(0.41445);
+    const [maxOfXCat, setMaxOfXCat] = _react.useState(0.69291);
+    const [minOfYCat, setMinOfYCat] = _react.useState(0.14);
+    const [maxOfYCat, setMaxOfYCat] = _react.useState(65.3);
+    const open = Boolean(anchorEl);
+    const handleClick = event => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleXFilter = e => {
+      console.log("change x filter: " + e.target.value);
+      setXFilter(e.target.value);
+      console.log(xFilter);
+      console.log(yFilter);
+      var tempArr = [];
+      for (var t = 0; t < data.length; t++) {
+        tempArr.push(data[t][e.target.value]);
+      }
+      setMinOfXCat(Math.min.apply(Math, tempArr));
+      setMaxOfXCat(Math.max.apply(Math, tempArr));
+    };
+    const handleYFilterChange = e => {
+      console.log("change y filter: " + e.target.value);
+      setYFilter(e.target.value);
+      console.log(xFilter);
+      console.log(yFilter);
+      var tempArr = [];
+      for (var t = 0; t < data.length; t++) {
+        tempArr.push(data[t][e.target.value]);
+      }
+      setMinOfYCat(Math.min.apply(Math, tempArr));
+      setMaxOfYCat(Math.max.apply(Math, tempArr));
+    };
+    const handleSliderChange = (e, v) => {
+      console.log("set years to: " + v);
+      setStartYear(v[0]);
+      setEndYear(v[1]);
+    };
+    const useStyles = _materialUiCoreStyles.makeStyles({
+      select: {
+        background: "#FFFFFF",
+        width: "300px",
+        '&:before': {
+          background: "#FFFFFF"
+        },
+        '&:after': {
+          background: "#FFFFFF"
+        }
+      },
+      label: {
+        color: "#FFFFFF"
+      }
+    });
+    const classes = useStyles();
+    console.log("Scatter plot being called");
+    // var xFilter = xFilter;
+    // var yFilter = yFilter;
+    var screenWidth = window.innerWidth;
+    var margin = {
+      top: 10,
+      right: 30,
+      bottom: 30,
+      left: 60
+    }, width = screenWidth * .6 - margin.left - margin.right, height = 400 - margin.top - margin.bottom;
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    _d.select("#scatterplot-vis").selectAll("*").remove();
+    const svg = _d.select("#scatterplot-vis").append("g").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // Add X axis
+    var x = _d.scaleLinear().domain([minOfXCat, maxOfXCat]).range([0, width]);
+    // Add X Axis Label
+    svg.append('text').attr('class', 'axis-label').attr('stroke', 'white').attr('fill', 'white').attr('x', innerWidth / 2 + margin.left / 2).attr('y', 390).text(xFilter);
+    svg.append("g").attr("transform", "translate(0," + height + ")").call(_d.axisBottom(x));
+    // Add Y axis
+    var y = _d.scaleLinear().domain([maxOfYCat, minOfYCat]).range([height, 0]);
+    // Add y Xxis Label
+    svg.append('text').attr('class', 'axis-label').attr('stroke', 'white').attr('fill', 'white').attr('x', -innerHeight / 2 - margin.top).attr('y', -48).attr('transform', `rotate(-90)`).style('text-anchor', 'middle').text(yFilter);
+    svg.append("g").call(_d.axisLeft(y));
+    // Add the tooltip container to the vis container
+    // it's invisible and its position/contents are defined during mouseover
+    _d.select(".tooltip").remove();
+    var tooltip = _d.select("#vis_container").append("div").attr("class", "tooltip").style("opacity", 0);
+    // tooltip mouseover event handler
+    var tipMouseover = function (event, d) {
+      var html = "year: " + d.year + "<br/>" + xFilter + ": " + d[xFilter] + "<br/>" + yFilter + ": " + d[yFilter];
+      _d.select(this).attr("r", 5).style("fill", "white");
+      tooltip.html(html).style("left", event.pageX + 15 + "px").style("top", event.pageY - 28 + "px").style("position", "absolute").style("pointer-events", "none").transition().duration(350).style("opacity", 1);
+    };
+    // tooltip mouseout event handler
+    var tipMouseout = function (event, d) {
+      _d.select(this).attr("r", 2.5).style("fill", "#1DB954");
+      tooltip.transition().duration(250).style("opacity", 0);
+    };
+    svg.selectAll(".dot").data(data).enter().append("circle").attr("class", "dot").attr("cx", function (d) {
+      return x(d[xFilter]);
+    }).attr("cy", function (d) {
+      return y(d[yFilter]);
+    }).attr("r", 2.5).style("fill", d => yearColors[Math.round(d.year / 10)]).on("mouseover", tipMouseover).on("mouseout", tipMouseout);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "scatterplot_container",
+        id: "vis_container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 274,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        className: "centered",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 275,
+          columnNumber: 13
+        }
+      }, "React and D3 Interactive Scatter Plot Visualization #2"), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flexed",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 276,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "filters centered",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 277,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flexed justified",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 278,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["192"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 279,
+          columnNumber: 25
+        }
+      }, "1920's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["193"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 280,
+          columnNumber: 25
+        }
+      }, "1930's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["194"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 281,
+          columnNumber: 25
+        }
+      }, "1940's ")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flexed justified",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 283,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["195"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284,
+          columnNumber: 25
+        }
+      }, "1950's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["196"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 285,
+          columnNumber: 25
+        }
+      }, "1960's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["197"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 286,
+          columnNumber: 25
+        }
+      }, "1970's ")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flexed justified",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 288,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["198"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 289,
+          columnNumber: 25
+        }
+      }, "1980's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["199"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 290,
+          columnNumber: 25
+        }
+      }, "1990's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["200"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 291,
+          columnNumber: 25
+        }
+      }, "2000's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: yearColors["200"]
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 292,
+          columnNumber: 25
+        }
+      }, "2010+ ")), /*#__PURE__*/_reactDefault.default.createElement("h2", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 294,
+          columnNumber: 21
+        }
+      }, "Change Filters"), /*#__PURE__*/_reactDefault.default.createElement("br", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 295,
+          columnNumber: 21
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.InputLabel, {
+        className: classes.label,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 296,
+          columnNumber: 21
+        }
+      }, "X-Axis"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.Select, {
+        value: xFilter,
+        onChange: handleXFilter,
+        variant: "outlined",
+        className: classes.select,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 297,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "danceability",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 303,
+          columnNumber: 25
+        }
+      }, "Danceability"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "acousticness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 304,
+          columnNumber: 25
+        }
+      }, "Acousticness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "liveness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 305,
+          columnNumber: 25
+        }
+      }, "Liveness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "popularity",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 306,
+          columnNumber: 25
+        }
+      }, "Popularity"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "tempo",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 307,
+          columnNumber: 25
+        }
+      }, "Tempo"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "valence",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 308,
+          columnNumber: 25
+        }
+      }, "Valence"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "speechiness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 309,
+          columnNumber: 25
+        }
+      }, "Speechiness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "instrumentalness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 310,
+          columnNumber: 25
+        }
+      }, "Instrumentalness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "energy",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 311,
+          columnNumber: 25
+        }
+      }, "Energy"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "duration_ms",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 312,
+          columnNumber: 25
+        }
+      }, "Duration(ms)")), /*#__PURE__*/_reactDefault.default.createElement("br", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 314,
+          columnNumber: 17
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.InputLabel, {
+        className: classes.label,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 315,
+          columnNumber: 17
+        }
+      }, "Y-Axis"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.Select, {
+        value: yFilter,
+        onChange: handleYFilterChange,
+        variant: "outlined",
+        className: classes.select,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 316,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "danceability",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 322,
+          columnNumber: 21
+        }
+      }, "Danceability"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "acousticness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 323,
+          columnNumber: 21
+        }
+      }, "Acousticness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "liveness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 324,
+          columnNumber: 21
+        }
+      }, "Liveness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "popularity",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 325,
+          columnNumber: 21
+        }
+      }, "Popularity"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "tempo",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 326,
+          columnNumber: 21
+        }
+      }, "Tempo"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "valence",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 327,
+          columnNumber: 21
+        }
+      }, "Valence"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "speechiness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 328,
+          columnNumber: 21
+        }
+      }, "Speechiness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "instrumentalness",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 329,
+          columnNumber: 21
+        }
+      }, "Instrumentalness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "energy",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 330,
+          columnNumber: 21
+        }
+      }, "Energy"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
+        value: "duration_ms",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 331,
+          columnNumber: 21
+        }
+      }, "Duration(ms)"))), /*#__PURE__*/_reactDefault.default.createElement("svg", {
+        id: "scatterplot-vis",
+        className: "svg-canvas",
+        width: width,
+        height: height + margin.top * 6,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 334,
+          columnNumber: 13
+        }
+      })))
+    );
+  }
+  _s(ScatterPlot, "imaIx2M/Ra4ZXiznS47m7pghQbs=", false, function () {
+    return [_hooksUseFetch.useFetch, useStyles];
+  });
+  _c = ScatterPlot;
+  exports.default = ScatterPlot;
+  var _c;
+  $RefreshReg$(_c, "ScatterPlot");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
