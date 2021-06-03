@@ -26376,7 +26376,7 @@ try {
             lineNumber: 8,
             columnNumber: 17
           }
-        }, "May 1st, 2021"), /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        }, "May 1st - June 3rd, 2021"), /*#__PURE__*/_reactDefault.default.createElement("h3", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -87444,7 +87444,7 @@ try {
     svg.append('text').attr('class', 'axis-label').attr('stroke', 'white').attr('fill', 'white').attr('x', innerWidth / 2 + margin.left / 2).attr('y', 390).text(xFilter);
     svg.append("g").attr("transform", "translate(0," + height + ")").call(_d.axisBottom(x));
     // Add Y axis
-    var y = _d.scaleLinear().domain([maxOfYCat, minOfYCat]).range([height, 0]);
+    var y = _d.scaleLinear().domain([minOfYCat, maxOfYCat]).range([height, 0]);
     // Add y Xxis Label
     svg.append('text').attr('class', 'axis-label').attr('stroke', 'white').attr('fill', 'white').attr('x', -innerHeight / 2 - margin.top).attr('y', -48).attr('transform', `rotate(-90)`).style('text-anchor', 'middle').text(yFilter);
     svg.append("g").call(_d.axisLeft(y));

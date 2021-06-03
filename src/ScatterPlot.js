@@ -217,7 +217,7 @@ function ScatterPlot() {
         .call(d3.axisBottom(x));
     // Add Y axis
     var y = d3.scaleLinear()
-        .domain([maxOfYCat, minOfYCat])
+        .domain([minOfYCat, maxOfYCat])
         .range([ height, 0]);
     // Add y Xxis Label
     svg.append('text')
