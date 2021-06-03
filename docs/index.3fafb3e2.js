@@ -26579,7 +26579,37 @@ try {
             lineNumber: 41,
             columnNumber: 59
           }
-        }, "Kaggle.com"), " and were able to execute certain SQL queries on the data set that was given."))
+        }, "Kaggle.com"), " and were able to execute certain SQL queries on the data set that was given."), /*#__PURE__*/_reactDefault.default.createElement("br", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43,
+            columnNumber: 17
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement("h2", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 44,
+            columnNumber: 17
+          }
+        }, "Step 3: Integrating Feedback From Assignment 3"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          className: "tabbed",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 45,
+            columnNumber: 17
+          }
+        }, "After discussing design feedback for our third assignment with both Colin and Kevin, it was recommended that we allow users to change the variables being displayed on both the X and Y axis, since we had the X-axis only displaying the year. To do this, we were also recommended to incorporate a Scatterplot that will allow us to change the axis's much easier. Since we were happy with our intitial barchart that we developed for assignment 3, we included it in our final assignment, but allowed users to decide which type of visualization they wanted to use with a toggle switch that changed the visualization being rendered on the page."), /*#__PURE__*/_reactDefault.default.createElement("p", {
+          className: "tabbed",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51,
+            columnNumber: 17
+          }
+        }, "While developing this new Scatterplot, we also wanted to include more interactivity with the data points on the plot itself. This is where we included the D3 tooltip functionaility that allowed us to display the pertinent information about the specific points whenever a user hovered over the point itself."))
       );
     }
   }
@@ -87456,12 +87486,20 @@ try {
           lineNumber: 275,
           columnNumber: 13
         }
-      }, "React and D3 Interactive Scatter Plot Visualization #2"), /*#__PURE__*/_reactDefault.default.createElement("div", {
-        className: "flexed",
+      }, "React and D3 Interactive Scatter Plot Visualization"), /*#__PURE__*/_reactDefault.default.createElement("p", {
+        className: "centered",
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 276,
+          columnNumber: 13
+        }
+      }, "Hover over data points for more information"), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flexed",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 277,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -87469,7 +87507,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 277,
+          lineNumber: 278,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -87477,7 +87515,25 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 278,
+          lineNumber: 279,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", {
+        style: {
+          color: "white"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 280,
+          columnNumber: 25
+        }
+      }, "Legend")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "flexed justified",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 282,
           columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87487,7 +87543,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 279,
+          lineNumber: 283,
           columnNumber: 25
         }
       }, "1920's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87497,7 +87553,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 280,
+          lineNumber: 284,
           columnNumber: 25
         }
       }, "1930's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87507,7 +87563,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 281,
+          lineNumber: 285,
           columnNumber: 25
         }
       }, "1940's ")), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -87515,7 +87571,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 283,
+          lineNumber: 287,
           columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87525,7 +87581,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 284,
+          lineNumber: 288,
           columnNumber: 25
         }
       }, "1950's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87535,7 +87591,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 285,
+          lineNumber: 289,
           columnNumber: 25
         }
       }, "1960's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87545,7 +87601,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 286,
+          lineNumber: 290,
           columnNumber: 25
         }
       }, "1970's ")), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -87553,7 +87609,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 288,
+          lineNumber: 292,
           columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87563,7 +87619,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 289,
+          lineNumber: 293,
           columnNumber: 25
         }
       }, "1980's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87573,7 +87629,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 290,
+          lineNumber: 294,
           columnNumber: 25
         }
       }, "1990's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87583,7 +87639,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 291,
+          lineNumber: 295,
           columnNumber: 25
         }
       }, "2000's "), /*#__PURE__*/_reactDefault.default.createElement("p", {
@@ -87593,21 +87649,21 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 292,
+          lineNumber: 296,
           columnNumber: 25
         }
       }, "2010+ ")), /*#__PURE__*/_reactDefault.default.createElement("h2", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 294,
+          lineNumber: 298,
           columnNumber: 21
         }
       }, "Change Filters"), /*#__PURE__*/_reactDefault.default.createElement("br", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 295,
+          lineNumber: 299,
           columnNumber: 21
         }
       }), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.InputLabel, {
@@ -87615,7 +87671,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 296,
+          lineNumber: 300,
           columnNumber: 21
         }
       }, "X-Axis"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.Select, {
@@ -87626,7 +87682,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 297,
+          lineNumber: 301,
           columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87634,7 +87690,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 303,
+          lineNumber: 307,
           columnNumber: 25
         }
       }, "Danceability"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87642,7 +87698,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 304,
+          lineNumber: 308,
           columnNumber: 25
         }
       }, "Acousticness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87650,7 +87706,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 305,
+          lineNumber: 309,
           columnNumber: 25
         }
       }, "Liveness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87658,7 +87714,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 306,
+          lineNumber: 310,
           columnNumber: 25
         }
       }, "Popularity"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87666,7 +87722,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 307,
+          lineNumber: 311,
           columnNumber: 25
         }
       }, "Tempo"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87674,7 +87730,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 308,
+          lineNumber: 312,
           columnNumber: 25
         }
       }, "Valence"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87682,7 +87738,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 309,
+          lineNumber: 313,
           columnNumber: 25
         }
       }, "Speechiness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87690,7 +87746,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 310,
+          lineNumber: 314,
           columnNumber: 25
         }
       }, "Instrumentalness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87698,7 +87754,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 311,
+          lineNumber: 315,
           columnNumber: 25
         }
       }, "Energy"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87706,14 +87762,14 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 312,
+          lineNumber: 316,
           columnNumber: 25
         }
       }, "Duration(ms)")), /*#__PURE__*/_reactDefault.default.createElement("br", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 314,
+          lineNumber: 318,
           columnNumber: 17
         }
       }), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.InputLabel, {
@@ -87721,7 +87777,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 315,
+          lineNumber: 319,
           columnNumber: 17
         }
       }, "Y-Axis"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCore.Select, {
@@ -87732,7 +87788,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 316,
+          lineNumber: 320,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87740,7 +87796,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 322,
+          lineNumber: 326,
           columnNumber: 21
         }
       }, "Danceability"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87748,7 +87804,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 323,
+          lineNumber: 327,
           columnNumber: 21
         }
       }, "Acousticness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87756,7 +87812,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 324,
+          lineNumber: 328,
           columnNumber: 21
         }
       }, "Liveness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87764,7 +87820,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 325,
+          lineNumber: 329,
           columnNumber: 21
         }
       }, "Popularity"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87772,7 +87828,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 326,
+          lineNumber: 330,
           columnNumber: 21
         }
       }, "Tempo"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87780,7 +87836,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 327,
+          lineNumber: 331,
           columnNumber: 21
         }
       }, "Valence"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87788,7 +87844,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 328,
+          lineNumber: 332,
           columnNumber: 21
         }
       }, "Speechiness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87796,7 +87852,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 329,
+          lineNumber: 333,
           columnNumber: 21
         }
       }, "Instrumentalness"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87804,7 +87860,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 330,
+          lineNumber: 334,
           columnNumber: 21
         }
       }, "Energy"), /*#__PURE__*/_reactDefault.default.createElement(_materialUiCoreMenuItemDefault.default, {
@@ -87812,7 +87868,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 331,
+          lineNumber: 335,
           columnNumber: 21
         }
       }, "Duration(ms)"))), /*#__PURE__*/_reactDefault.default.createElement("svg", {
@@ -87823,7 +87879,7 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 334,
+          lineNumber: 338,
           columnNumber: 13
         }
       })))
@@ -87874,7 +87930,7 @@ try {
             lineNumber: 8,
             columnNumber: 17
           }
-        }, "Conclusion/Write-Up"), /*#__PURE__*/_reactDefault.default.createElement("br", {
+        }, "Conclusion/Write-Up (Assignment 3)"), /*#__PURE__*/_reactDefault.default.createElement("br", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
